@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Getting Started: Serving Web Content</title>
+    <link href="/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <style>
+        *{margin:0 auto;}
+        .login-panel{width:40%;}
+        .panel-body div{margin:10px;}
+        #login-warning{display: none}
+    </style>
+</head>
+<body>
+
+<form action="http://www.baidu.com" method="post" id="login-form">
+<div class="panel panel-default login-panel">
+    <div class="panel-heading">后台管理系统</div>
+    <div class="panel-body">
+        <div class="input-group">
+            <span class="input-group-addon"><em class="glyphicon glyphicon-user"></em></span>
+            <input type="text" class="form-control" placeholder="用户名" id="login-user"  name="username" >
+        </div>
+        <div class="input-group">
+            <span class="input-group-addon"><em class="glyphicon glyphicon-lock"></em></span>
+            <input type="text" class="form-control" placeholder="密码" id="login-pass" name="password">
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-block" id="login-button">登陆</button>
+        </div>
+        <div class="alert alert alert-danger" role="alert" id="login-warning">请输入用户名及密码</div>
+    </div>
+</div>
+</form>
+
+
+<script src="/js/jquery/jquery.min.js"></script>
+<script src="/js/bootstrap/bootstrap.min.js"></script>
+<script src="/js/angular/angular.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#login-button").click(function(){
+            if($("#login-user").val()==""|| $("#login-pass").val()==""){
+                $("#login-warning").fadeIn("slow");
+            }else{
+                $("#login-warning").fadeOut("slow");
+                $("#login-form").submit();
+            }
+        });
+    });
+</script>
+</body>
+</html>

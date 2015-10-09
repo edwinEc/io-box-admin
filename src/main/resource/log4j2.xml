@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <RollingFile name="logger" fileName="D:\logger.log" bufferedIO="false" filePattern="D:\logger-%d{yyyyMMdd}.log" >
+            <PatternLayout pattern="%d{yyyy.MM.dd'|'HH:mm:ss}|%msg%xEx%n"/>
+            <TimeBasedTriggeringPolicy />
+        </RollingFile>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="logger" level="info" additivity="false">
+            <AppenderRef ref="logger"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+        </Root>
+    </Loggers>
+</Configuration>
